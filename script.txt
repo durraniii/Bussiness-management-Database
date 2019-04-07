@@ -1,0 +1,7 @@
+create table products(p_id int primary key auto_increment, product_name varchar(40) NOT NULL,original_price int,stock int);
+
+create table customers(c_id int primary key auto_increment, customer_name varchar(40) NOT NULL,address varchar(50),contact varchar(20));
+
+ create table orders(order_id int primary key auto_increment,order_date DATE NOT NULL,c_id int,FOREIGN KEY(c_id) REFERENCES customers(c_id));
+
+ create table details(ID int primary key auto_increment,order_id int,p_id int,quantity int, price int, FOREIGN KEY(order_id) REFERENCES orders(order_id),FOREIGN KEY(p_id) REFERENCES products(p_id));
